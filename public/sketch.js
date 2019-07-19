@@ -4,9 +4,11 @@ let cols=4;
 let boxes=[];
 let images=[];
 let count;
+let doorImage;
 function preload(){
     for(let i=0;i<8;i++)
         images.push(loadImage("./musicInstruments/image"+(i+1)+".jpg"));
+    doorImage=loadImage("door.png");
 }
 function setup(){
     createCanvas(300,300,WEBGL);

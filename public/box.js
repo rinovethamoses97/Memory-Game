@@ -36,13 +36,15 @@ class Box{
             // stroke(255);
             // line(0,0,0,height);
             rotateY(this.angle);
-            stroke(255);
-            fill(255);
+            // stroke(255);
+            // fill(255);
             if(this.revealed){
                 image(this.img,-this.size/2,this.y,this.size,this.size);
             }
-            else
-                rect(-this.size/2,this.y,this.size,this.size);
+            else{
+                image(doorImage,-this.size/2,this.y,this.size,this.size);
+                // rect(-this.size/2,this.y,this.size,this.size);
+            }
             pop()
     }
     isMouseIn(mouseX,mouseY){
