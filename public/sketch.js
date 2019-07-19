@@ -47,7 +47,7 @@ function draw(){
                     boxes[i].revealed=false;
                 }   
             }
-        },200)
+        },100)
     }
     if(winCheck()){
         alert("Won!!!");
