@@ -14,12 +14,14 @@ class Box{
         if(this.rotate){
             this.angle+=5;
             if(this.angle==180){
+                doorSound.stop();
                 this.revealed=true;
                 this.rotate=false;
                 this.angle=0;
                 for(let i in boxes){
                     if(boxes[i]!=this){
                         if(!boxes[i].completed && this.imgId==boxes[i].imgId && boxes[i].revealed){
+                            winSound.play();
                             this.completed=true;
                             boxes[i].completed=true;
                             return;

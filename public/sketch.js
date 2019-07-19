@@ -5,10 +5,14 @@ let boxes=[];
 let images=[];
 let count;
 let doorImage;
+let doorSound;
+let winSound;
 function preload(){
     for(let i=0;i<8;i++)
         images.push(loadImage("./musicInstruments/image"+(i+1)+".jpg"));
     doorImage=loadImage("door.png");
+    doorSound=loadSound("doorSound.mp3");
+    winSound=loadSound("winSound.wav");
 }
 function setup(){
     createCanvas(300,300,WEBGL);
@@ -80,6 +84,7 @@ function mousePressed(){
             if((a==1 && r==1)||(a==2 && r==0)){
                 return;
             }
+            doorSound.play();
             boxes[i].rotate=true;
             return;
         }
