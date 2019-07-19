@@ -3,6 +3,7 @@ let rows=4;
 let cols=4;
 let boxes=[];
 let images=[];
+let count;
 function preload(){
     for(let i=0;i<8;i++)
         images.push(loadImage("./musicInstruments/image"+(i+1)+".jpg"));
@@ -29,7 +30,7 @@ function setup(){
 function draw(){
     translate(-width/2,-height/2);
     background(0);
-    let count=0;
+    count=0;
     for(let i in boxes){
         boxes[i].update(boxes);
         boxes[i].show();
@@ -48,6 +49,18 @@ function draw(){
             }
         },200)
     }
+    if(winCheck()){
+        alert("Won!!!");
+        noLoop();
+    }
+}
+function winCheck(){
+    for(let i in boxes){
+        if(!boxes[i].completed){
+            return false;
+        }
+    }
+    return true;
 }
 function mousePressed(){
     for(let i in boxes){
