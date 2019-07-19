@@ -49,7 +49,7 @@ function draw(){
                     boxes[i].revealed=false;
                 }   
             }
-        },100)
+        },200)
     }
     if(winCheck()){
         alert("Won!!!");
@@ -67,6 +67,19 @@ function winCheck(){
 function mousePressed(){
     for(let i in boxes){
         if(boxes[i].isMouseIn(mouseX,mouseY) && !boxes[i].revealed){
+            let a=0;
+            let r=0;
+            for(let j in boxes){
+                if(boxes[j].angle!=0){
+                    a++;
+                }
+                if(!boxes[j].completed && boxes[j].revealed){
+                    r++;
+                }
+            }
+            if((a==1 && r==1)||(a==2 && r==0)){
+                return;
+            }
             boxes[i].rotate=true;
             return;
         }
